@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Roboto+Mono:wght@700&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Habits</title>
+  
+  <!-- SEO -->
+  <meta name="my-habits" content="Habits - Tracking Daily Habits"> 
+
+  <!-- SMO -->
+  <meta property="og:title" content="Habits - Tracking Daily Habits" >
+  <meta property="og:site_name" content="Habit Tracker">
+  <meta property="og:description" content="Track your habits. See how you're doing with your daily activities.">
+  <meta property="og:url" content="https://github.com/fernandoalvesrufino/nlw-11-habit-tracker">
+  <meta property="og:image" content="https://uploads-ssl.webflow.com/6027a0c20f124c04b4c62dfe/6027a0c20f124c5f4ac633c0_Everyday-habit-tracker-app.jpeg">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header>
+    <img src="./assets/images.jpg" alt="Habits App Logo" style="width:100px;">
+    <button id="theme-toggle-btn">
+      <i class='bx bxs-toggle-right' style='color:#6d28d9'></i>
+      <div>Theme</div>
+    </button>
+    <button>
+      <i class='bx bxs-calendar' style='color:#7c3aed'></i>
+      <div>Register My Day</div>
+    </button>
+    <button id="add-task-btn">
+      <i class='bx bx-plus' style='color:#6d28d9'></i>
+      <div>Add Task</div>
+    </button>
+    <button id="username">
+      <i class='bx bx-user' style='color:#6d28d9'></i>
+      <div>Username: <span id="username-display">User</span></div>
+    </button>
+    <button id="logout-btn">
+      <i class='bx bx-log-out' style='color:red'></i>
+      <div>Logout</div>
+    </button>
+  </header>
+  
+  <form id="form-habits">
+    <div class="habits">
+      <div class="habit" data-name="calendar">  
+        <img src="./assets/calendar.jpg" alt="Daily Text" title="Daily Text">
+      </div>
+
+      <div class="habit" data-name="github">
+        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Activity" title="GitHub Activity">
+      </div>
+      <div class="habit" data-name="linkedin">
+        <img src="https://img1.gratispng.com/20180320/rbe/kisspng-linkedin-computer-icons-social-media-professional-png-linkedin-transparent-5ab1766dcafc38.5216273615215796298314.jpg" alt="LinkedIn Post" title="LinkedIn Post">
+      </div>
+      <div class="habit" data-name="duolingo">
+        <img src="https://1000logos.net/wp-content/uploads/2020/10/Duolingo-logo.png" alt="Learn English" title="Learn English">
+      </div>
+      
+      <div class="habit" data-name="personal-study">
+        <img src="https://img.icons8.com/emoji/256/books-emoji.png" alt="Personal Study" title="Personal Study">
+      </div>
+    </div>
+    <div class="days"></div>
+  </form>
+
+  <script src="https://cdn.jsdelivr.net/gh/maykbrito/libs/NLWSetup/source/NLWSetup.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

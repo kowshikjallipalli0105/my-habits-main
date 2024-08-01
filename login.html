@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.814.0.min.js"></script>
+</head>
+<body>
+  <div id="login-page">
+    <h2>Login</h2>
+    <form id="login-form">
+      <label for="login-username">Username</label>
+      <input type="text" id="login-username" placeholder="Enter username" required>
+      <label for="login-password">Password</label>
+      <input type="password" id="login-password" placeholder="Enter Password" required>
+      <button type="submit">Login</button>
+    </form>
+    <p style="color: black;">Don't have an account? <a href="signup.html">Sign up</a></p>
+  </div>
+
+  <script>
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const username = document.getElementById('login-username').value;
+      const password = document.getElementById('login-password').value;
+
+      const data = {
+        username: username,
+        password: password
+      };
+
+      fetch('https://3kv6pzvv99.execute-api.ap-south-1.amazonaws.com/v1/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('API response:', data); // Log the full API response
+
+        if (data.message) {
+          if (data.message === 'Login successful') {
+            alert('Login successful!');
+            window.location.href = 'habits.html';
+          } else {
+            alert(data.message);
+          }
+        } else {
+          alert('Unexpected response structure');
+        }
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        alert('Error logging in. Please try again.');
+      });
+    });
+  </script>
+</body>
+</html>
